@@ -2,6 +2,9 @@ import random
 player_choice, cpu_choice = "", ""
 rps = ['rock', 'paper', 'scissors']
 
+print("")
+
+
 def get_choices():
 	global player_choice, cpu_choice
 	cpu_choice = rps[random.randint(0, len(rps)-1)]
