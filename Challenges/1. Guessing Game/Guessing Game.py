@@ -7,14 +7,17 @@ def ask_bounds():
     upper = int(input("Upper bound? "))
     difficulty = int(input("Difficulty? "))
 ask_bounds()
-if lower >= upper or difficulty > upper - lower:
+while lower >= upper or difficulty > upper - lower:
     print("Incorrect bounds or difficulty, try again.")
     ask_bounds()
 right_answer = random.randint(lower, upper)
 
 attempts = 0
 attempts_amount = int((upper - lower)/difficulty)
-print(f"You have {attempts_amount} attempts!")
+if attempts_amount > 1:
+    print(f"You have {attempts_amount} attempts!")
+else:
+    print(f"You have {attempts_amount} attempt!")
 
 def guess():
     global right_answer, attempts_amount, attempts
@@ -29,8 +32,14 @@ def guess():
     elif attempts_amount != attempts:
         print(f"Wrong! {attempts_left} attempts left.")
     else:
-        print(f"Out of attempts, the answer was {right_answer}. You had {attempts_amount} attempts.")
-        time.sleep(5)
-        quit()
+        if attempts_amount > 1:
+            print(f"Out of attempts, the answer was {right_answer}. You had {attempts_amount} attempts.")
+            time.sleep(5)
+            quit()
+        else:
+            print(f"Out of attempts, the answer was {right_answer}. You had {attempts_amount} attempt.")
+            time.sleep(5)
+            quit()
+
 while True:
     guess()

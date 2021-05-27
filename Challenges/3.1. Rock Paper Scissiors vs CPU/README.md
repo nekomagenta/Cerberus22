@@ -3,4 +3,4 @@
   Make a rock paper scissors game against the computer
   
 ## Required libraries:
-  - 
+  - random
