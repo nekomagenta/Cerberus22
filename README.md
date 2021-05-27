@@ -1,6 +1,7 @@
 # Neural Challenges
 This respoitory will contain all challnges I finished.
 Most, if not all, will be written in python.
+Feel free to use any code written here!
 
 ## Challanges:
   ### 1. Guessing game
