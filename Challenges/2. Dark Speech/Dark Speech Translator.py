@@ -125,8 +125,8 @@ text_field_input = Text(
 	window,
 	fg='red',
 	bg=text_bg,
-	width=60,
-	height=10
+	width=100,
+	height=15
 	)
 text_field_input.pack()
 
@@ -145,10 +145,21 @@ text_field_result = Text(
 	window,
 	fg='red',
 	bg=text_bg,
-	width=60,
-	height=10
+	width=100,
+	height=15
 	)
 text_field_result.pack()
 
-centertk(window, 560, 430)
+text_field_result.insert("1.0", """
+
+
+              ________  ________  ______   ________  ________  ______   __    __  ________
+             /  _____/ /  _____/ /  __  \ /  __   / /  _____/ /  __  \ /  /  /  //  _____/
+            /  /      /  /____  /  /_/  //  /_/  / /  /____  /  /_/  //  /  /  //  /_____
+           /  /      /  _____/ /  __  _//   __   //   ____/ /  __  _//  /  /  //_____   /
+          /  /_____ /  /_____ /  / / \ /   /_/  //   /____ /  / / \ /  /__/  //_____/  /
+         /________//________//__/ /__//________//________//__/ /__//________//________/""")
+
+
+centertk(window, 1000, 600)
 window.mainloop()
