@@ -16,3 +16,11 @@ import socket
 
 rps = ['rock', 'paper', 'scissors']
 
+HOST_PORT = ('127.0.0.1', 4344)
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+	s.connect(HOST_PORT)
+	s.sendall(b'Heyo')
+	data = s.recv(1024)
+
+print(repr(data))
