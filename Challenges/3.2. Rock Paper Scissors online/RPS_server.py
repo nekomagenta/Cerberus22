@@ -1,5 +1,5 @@
 print("""
-__  __           _        _           
+ __  __           _        _           
 |  \/  | __ _  __| | ___  | |__  _   _ 
 | |\/| |/ _` |/ _` |/ _ \ | '_ \| | | |
 | |  | | (_| | (_| |  __/ | |_) | |_| |
@@ -18,14 +18,20 @@ rps = ['rock', 'paper', 'scissors']
 
 HOST_PORT = ('127.0.0.1', 4344)
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-	s.bind(HOST_PORT)
-	s.listen()
-	conn, addr = s.accept()
-	with conn:
-		print('Connected by', addr)
-		while True:
-			data = conn.recv(1024)
-			if not data:
-				break
-			conn.sendall(data)
+close = False
+while close == False:
+	with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+		s.bind(HOST_PORT)
+		s.listen()
+		conn, addr = s.accept()
+		with conn:
+			print('Connected by', addr)
+			while True:
+				data = conn.recv(1024)
+				if not data:
+					break
+				if data == b'close':
+					conn.sendall(b'Closing server.')
+					quit()
+
+				

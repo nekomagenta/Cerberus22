@@ -1,5 +1,5 @@
 print("""
-__  __           _        _           
+ __  __           _        _           
 |  \/  | __ _  __| | ___  | |__  _   _ 
 | |\/| |/ _` |/ _` |/ _ \ | '_ \| | | |
 | |  | | (_| | (_| |  __/ | |_) | |_| |
@@ -18,9 +18,19 @@ rps = ['rock', 'paper', 'scissors']
 
 HOST_PORT = ('127.0.0.1', 4344)
 
+choice = ''
+def get_choice():
+	global choice
+	choice = input("Rock, paper or scissors? ").lower()
+
+get_choice()
+while choice not in rps:
+	print("Invalid option, please try again.")
+	get_choice()
+
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 	s.connect(HOST_PORT)
-	s.sendall(b'Heyo')
+	s.sendall(choice.encode('utf-8'))
 	data = s.recv(1024)
 
-print(repr(data))
+print(data.decode('utf-8'))
