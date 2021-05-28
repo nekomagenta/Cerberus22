@@ -17,4 +17,4 @@ Feel free to use any code written here!
   Make a rock paper scissors online game with two players 
 ## Special thanks:
   - IamPIYUSH for coming up with the idea of challenge #1
-  - [0x454d505459](https://github.com/0x454d505459) for cominb up with the idea of challenge #3
+  - [0x454d505459](https://github.com/0x454d505459) for coming up with the idea of challenge #3
