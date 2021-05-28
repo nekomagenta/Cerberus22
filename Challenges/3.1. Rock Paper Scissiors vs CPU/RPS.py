@@ -15,10 +15,10 @@ print("""
 def get_choices():
 	global player_choice, cpu_choice
 	cpu_choice = rps[random.randint(0, len(rps)-1)]
-	player_choice = input("Rock, paper or scissors? ")
+	player_choice = input("Rock, paper or scissors? ").lower()
 
 get_choices()
-while player_choice.lower() not in rps:
+while player_choice not in rps:
 	print("Invalid option, please try again.")
 	get_choices()
 
